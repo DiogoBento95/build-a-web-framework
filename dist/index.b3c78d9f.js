@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"5Hexx":[function(require,module,exports) {
+})({"9z07x":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -557,8 +557,64 @@ function hmrAccept(bundle, id) {
 }
 
 },{}],"lTuX0":[function(require,module,exports) {
+var _user = require("./models/User");
 console.log("Hi there!");
+const user = new (0, _user.User)({
+    name: "myname",
+    age: 20
+});
+user.set({
+    name: "newname"
+});
+console.log(user.get("name"));
+console.log(user.get("age"));
 
-},{}]},["5Hexx","lTuX0"], "lTuX0", "parcelRequire94c2")
+},{"./models/User":"dngfx"}],"dngfx":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "User", ()=>User);
+class User {
+    constructor(data){
+        this.data = data;
+    }
+    get(propName) {
+        return this.data[propName];
+    }
+    set(update) {
+        Object.assign(this.data, update);
+    }
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"9yxsF"}],"9yxsF":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}]},["9z07x","lTuX0"], "lTuX0", "parcelRequire94c2")
 
 //# sourceMappingURL=index.b3c78d9f.js.map
